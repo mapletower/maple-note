@@ -2,7 +2,12 @@ import Vue from 'vue'
 import App from './App.vue'
 import './registerServiceWorker'
 
+import MuseUI from 'muse-ui'
+import 'muse-ui/dist/muse-ui.css'
+
 Vue.config.productionTip = false
+
+Vue.use(MuseUI)
 
 new Vue({
   render: h => h(App)

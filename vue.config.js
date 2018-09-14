@@ -19,11 +19,7 @@ module.exports = {
         {
           urlPattern: /.*\.(?:js|css)/, // css和js文件采用cacheFirst手段
           handler: 'cacheFirst'// 缓存优先
-        },
-        {
-          urlPattern: /.*demo\.jpg/, // demojpg采用缓存优先
-          handler: 'cacheFirst'
-        },
+        }
       ]
     }
   }
