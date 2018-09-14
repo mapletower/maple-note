@@ -37,7 +37,15 @@ export default {
       open: false,
       docked: false,
       color: '#607d8b',
-      color1: '#b0bec5'
+      color1: '#b0bec5',
+      dataList: [
+        {
+          createAt: '2018年09月14日17:21:32',
+          updateAt: '2018年09月14日17:21:44',
+          title: '今日注意事项',
+          content: '今天要写一点很快乐的事情'
+        }
+      ]
     }
   }
 }
