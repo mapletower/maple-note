@@ -13,6 +13,11 @@ new Vue({
   render: h => h(App),
   data () {
     return {
+      route: 'list',
+      routeNameMap: {
+        list: '笔记',
+        dustbin: '垃圾箱'
+      },
       dataList: [
         {
           createAt: '2018年09月14日17:21:32',
@@ -20,7 +25,13 @@ new Vue({
           title: '今日注意事项',
           content: '今天要写一点很快乐的事情'
         }
-      ]
+      ],
+      color: ['#607d8b', '#b0bec5']
+    }
+  },
+  computed: {
+    routeName () {
+      return this.routeNameMap[this.route]
     }
   }
 }).$mount('#app')
