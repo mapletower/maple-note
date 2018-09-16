@@ -3,13 +3,20 @@
     <mu-flex class="list-wrapper" align-items="center">
       <mu-flex class="note-title">
         <mu-list>
-          <mu-list-item button v-for="item in $root.dataList" :key="item.updateAt" @click="currentContent = item.content, currentTitle = item.title">
+          <mu-list-item button v-for="item in $root.noteList" :key="item.updateAt" @click="updateNoteId(item.id)" :style="getStyle(item.id)">
             <mu-list-item-title>{{item.title}}</mu-list-item-title>
           </mu-list-item>
         </mu-list>
       </mu-flex>
-      <mu-flex class="note-content" fill>
-        {{currentContent}}
+      <mu-flex class="note-content">
+        <div v-if="!!$root.currentNoteContent.id">
+          <!-- {{$root.currentNoteContent}} -->
+          <input :value="$root.currentNoteContent.content" type="text" class="content-input" @change="contentChange"/>
+        </div>
+        <div v-else>
+          <div>一个很酷的枫叶图片</div>
+          {{$root.noteList.length}}篇笔记
+        </div>
       </mu-flex>
     </mu-flex>
   </div>
@@ -26,21 +33,41 @@ export default {
   },
   mounted () {
     // console.log(this.$root.dataList)
+  },
+  methods: {
+    updateNoteId (id) {
+      this.$root.currentNoteId = id
+    },
+    getStyle (id) {
+      return {
+        'background': this.$root.currentNoteId == id ? this.$root.color[1] : 'transparent'
+      }
+    },
+    contentChange (value) {
+      console.log(value)
+    }
   }
 }
 </script>
 
 <style lang="less" scoped>
  .list {
-   margin: 10px;
    .list-wrapper {
      .note-title {
-       width: 200px;
+       min-width: 200px;
        border-right: 1px solid #b0bec5;
-       margin-right: 10px;
      }
      .note-content {
        margin: 10px;
+       .content-input {
+         &:focus {
+           border: none;
+           outline-offset: 0;
+           outline-color: #fff;
+         }
+         width: 100%;
+         height: 100%;
+       }
      }
    }
  }

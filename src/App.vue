@@ -9,7 +9,7 @@
     <List v-show="$root.route == 'list'"/>
     <Dustbin v-show="$root.route == 'dustbin'"/>
     <mu-drawer :open.sync="open" :docked="docked" :right="false" :width="150">
-      <mu-list :style="{'padding-right': '5px'}">
+      <mu-list>
         <mu-list-item button @click="$root.route = 'list', open = false" :style="getStyle('list')">
           <mu-list-item-title>笔记</mu-list-item-title>
         </mu-list-item>
