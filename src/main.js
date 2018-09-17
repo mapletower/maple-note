@@ -20,6 +20,7 @@ new Vue({
       },
       currentNoteId: '',
       currentDustbinId: '',
+      currentInnerHeight: '',
       dataList: [
         {
           id: 1,
@@ -65,5 +66,11 @@ new Vue({
     currentDustinContent () {
       return this.dustbinList.find(item => item.id === this.currentDustbinId) || {}
     },
+  },
+  mounted () {
+    this.currentInnerHeight = window.innerHeight
+    window.onresize = () => {
+      this.currentInnerHeight = window.innerHeight
+    }
   }
 }).$mount('#app')
