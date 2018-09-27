@@ -10,7 +10,8 @@
   "dependencies": {
     "muse-ui": "^3.0.1",
     "register-service-worker": "^1.0.0",
-    "vue": "^2.5.17"
+    "vue": "^2.5.17",
+    "vue-meditor": "^0.7.0"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^3.0.1",
@@ -18,8 +19,10 @@
     "@vue/cli-plugin-pwa": "^3.0.3",
     "@vue/cli-service": "^3.0.1",
     "babel-plugin-import": "^1.8.0",
+    "highlight.js": "^9.12.0",
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
+    "marked": "^0.5.1",
     "vue-template-compiler": "^2.5.17"
   },
   "eslintConfig": {

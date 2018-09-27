@@ -9,7 +9,8 @@
         </mu-list>
       </mu-flex>
       <mu-flex class="note-content">
-        <textarea v-if="!!$root.currentNoteContent.id" name="text" :value="$root.currentNoteContent.content" class="content-input" rows="4" placeholder="编写笔记..."></textarea>
+        <textarea v-if="!!$root.currentNoteContent.id" name="text" v-model="$root.currentNoteContent.content" class="content-input" rows="4" placeholder="编写笔记..."></textarea>
+        <mark-down v-if="!!$root.currentNoteContent.id" :content="$root.currentNoteContent.content" style="width: 70%;height: 100%;overflow: scroll;"/>
         <div v-else class="bg-box">
           <p class="note-mark">{{$root.noteList.length}}篇笔记</p> 
         </div>
@@ -18,7 +19,12 @@
   </div>
 </template>
 <script>
+import MarkDown from '@/markdown'
+
 export default {
+  components: {
+    MarkDown
+  },
   data() {
     return {
       name: "list",
@@ -26,7 +32,7 @@ export default {
       currentContent: ""
     };
   },
-  mounted() {},
+  mounted () {},
   methods: {
     updateNoteId(id) {
       this.$root.currentNoteId = id;
